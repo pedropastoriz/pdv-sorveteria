@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "nome": "Picolé de Morango",
+      "preco": 8,
+      "quantidade": 100
+    },
+    {
+      "id": 2,
+      "nome": "Pote de Morango",
+      "preco": 20,
+      "quantidade": 50
+    }
+  ]
+  
