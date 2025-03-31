@@ -1,0 +1,114 @@
+body {
+  background-color: #FAF2E7;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007BCE;
+  padding: 5px 100px;
+  height: 90px;
+}
+
+.icones {
+  display: flex;
+  gap: 5px;
+}
+
+.icones a img {
+  height: 35px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FAF2E7;
+  padding-top: 50px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.form h2 {
+  text-align: center;
+  color: #007BCE;
+  font-size: 26px;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.campo {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.campo label {
+  font-size: 20px;
+  color: black;
+  text-align: right;
+  align-items: end;
+  padding-right: 10px;
+}
+
+.campo input, 
+.campo select {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid hsl(0, 0%, 64%);
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.campo select{
+  font-size: 15px;
+  width: 217px;
+  border: 2px solid hsl(0, 0%, 64%);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.select:focus option[hidden] {
+   display: none;
+}
+
+.att-button {
+  background-color: #FF8D54;
+  color: white;
+  border: none;
+  height: 40px;
+  width: 105px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #FF8D54;
+  color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 100vw;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.copyright {
+  color: white;
+}
