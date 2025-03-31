@@ -1,0 +1,146 @@
+/*Google Fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+*{
+    font-family: "Modak", system-ui;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-padding-top: 2rem; /*1 rem = 16px*/
+    scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Modak&display=swap');
+
+/*Variaveis*/
+:root{
+    --blue-color: #017bce;
+    --light-blue-color: ##2C9EEB;
+    --orange-color: #FF8D54;
+    --brown-color: #6B4836; 
+    --text-color: black;
+    --bg-color: #FAF2E7;
+}
+
+html {
+    height: 100%; /* Garante que o HTML e body ocupem toda a altura */
+    margin: 0; /* Remove margens padrão */
+    padding: 0;
+}
+
+
+body{
+    color: var(--text-color);
+}
+
+/* ------------------------------------------------------------------ CABEÇALHO ---------------------------------------------------------------*/
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 170px;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--blue-color);
+    padding: 10px 100px;
+}
+
+.logo{
+    display: inline-block; /* Garante que o link não expanda */
+    max-width: 180px;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    column-gap: 0.5rem;
+}
+
+.logo img{
+    width: 200px;
+    height: 160px;
+}
+
+.logo .bx{
+    color: var(--light-blue-color);
+}
+
+.navbar{
+    width: 300px;
+    height: 200px;
+    color: var(--light-blue-color);
+    align-content: center;
+    padding-left: 5rem;
+}
+
+#carrinho-icon {
+    font-size: 75px;
+}
+
+#menu-icon {
+    font-size: 75px;
+}
+
+.iconesNav {
+    display: fixed;           
+    justify-content: center; 
+    align-items: center;     
+    overflow: visible;
+    color: var(--orange-color);
+    padding: 10px 10px 10px 10px;
+}
+
+.iconesNav:hover{
+    height: 10rem;
+    width: 10rem;
+    color: var(--light-blue-color);
+    transition: background 0.5s;
+}
+
+
+
+
+
+/* ------------------------------------------------------------- CONTEÚDO ----------------------------------------------------------------*/
+
+.conteudo{
+    position: relative;
+    z-index: 900;
+    margin-top: 180px;
+}
+
+h1{
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 200;
+}
+
+.saborSorvetes{
+    width: 300px;
+    height: 250px;
+    display: block; /* Torna a imagem um bloco (necessário para centralizar) */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* ------------------------------------------------------------- RODAPÉ ----------------------------------------------------------------*/
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--orange-color);
+    text-align: center;
+    padding: 10px;
+}
+
+.copyright{
+    color: var(--bg-color);
+    letter-spacing: 2px;
+}
