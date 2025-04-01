@@ -1,0 +1,139 @@
+body {
+  background-color: #FAF2E7;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
+  min-width: 100vh;
+}
+main {
+  flex: 1;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007BCE;
+  padding: 5px 100px;
+  height: 90px;
+}
+
+.icones {
+  display: flex;
+  gap: 5px;
+}
+
+.icones a img {
+  height: 35px;
+}
+
+h2 {
+  text-align: center;
+  color: #007BCE;
+  font-size: 26px;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.cart-container {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.cart-title {
+  font-size: 22px;
+  color: #0072c6;
+  margin-bottom: 15px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantity-btn {
+  background-color: #0072c6;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quantity-btn:hover {
+  background-color: #005aa7;
+}
+
+input[type="text"] {
+  width: 70px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.campo {
+  margin-top: 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.campo input {
+  font-size: 18px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.comp-button {
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.comp-button:hover {
+  background-color: #e76f42;
+}
+
+.footer {
+  background-color: #FF8D54;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  max-width: 100vw;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.copyright {
+  color: white;
+}
