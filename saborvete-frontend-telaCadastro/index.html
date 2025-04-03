@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Saborvete - Cadastro</title>
+  <link rel="icon" href="images/abaLogo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-
+  scalle=1.0">
+  <link rel="stylesheet" href="cadastro.css">
+
+    <!--Link para site de ícones-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  </head>
+  
+  <body>
+      <!--Barra de navegação-->
+      <header>
+        <a href="home.html" class="logo">
+          <img src="images/logoSaborvete-semFundo.png" alt="Saborvete">
+        </a>
+      
+        <!-- Ícones atualizados com direcionamento -->
+        <div class="navbar">
+          <a href="carrinho.html" class="iconesNav"><i class="bx bx-cart" id="carrinho-icon"></i></a>
+          <a href="menu.html" class="iconesNav"><i class="bx bx-menu" id="menu-icon"></i></a>
+        </div>
+      </header>      
+  
+  <!--Lista de Items Selecionaveis-->
+
+  <nav class="navbar"></nav>
+
+  <form action="index.html" method="get" class="form">
+    <h2>CADASTRO</h2>
+
+    <div class="campo">
+      <label for="produto">Produto:</label>
+      <select id="produto" name="produto">
+        <option value="" disabled selected hidden>Escolha o produto</option>
+        <option value="">Picolé de Morango</option>
+        <option value="">Picolé de Chocolate</option>
+        <option value="">Picolé de Uva</option>
+        <option value="">Picolé de Coco</option>
+        <option value="">Picolé de Milho</option>
+        <option value="">Pote de Morango</option>
+        <option value="">Pote de Chocolate</option>
+        <option value="">Pote de Uva</option>
+        <option value="">Pote de Coco</option>
+        <option value="">Pote de Milho</option>
+      </select>
+    </div>
+  
+    <div class="campo">
+      <label for="preco">Preço:</label>
+      <input type="text" id="preco" name="preco">
+    </div>
+  
+    <div class="campo">
+      <label for="quantidade">Quantidade:</label>
+      <input type="text" id="quantidade" name="quantidade">
+    </div>
+  
+</body>
+<br>
+<button type="submit" class="att-button">ATUALIZAR</button>
+
+<footer class="footer">
+  <p class="copyright">&copy; 2025 - Todos os direitos reservados</p>
+</footer>
+
+
+    <!--Linkando o JavaScript-->
+    <script src="cadastro.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</html>
