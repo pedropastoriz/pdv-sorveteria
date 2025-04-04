@@ -1,45 +1,66 @@
-alert('Olá, mundo!');
+console.log("Script carregado com sucesso!");
 
+/* Função para carregar os produtos do backend */
+async function carregarProdutos() {
+    try {
+        const resposta = await fetch('http://localhost:3000/api/produtos'); // Altere para a porta do seu servidor
+        if (!resposta.ok) throw new Error('Erro ao carregar os produtos');
+        const produtos = await resposta.json();
+        renderizarProdutos(produtos);
+    } catch (erro) {
+        console.error("Erro ao buscar produtos:", erro);
+    }
+}
 
-/*Botões aumentar e diminuir produtos*/
-document.querySelectorAll('.produto').forEach(produto => {
-    const diminuirBtn = produto.querySelector('.diminuir');
-    const adicionarBtn = produto.querySelector('.adicionar');
-    const quantidadeEl = produto.querySelector('.quantidade');
-    
-    let quantidade = 0;
+/* Renderiza os produtos na página */
+function renderizarProdutos(produtos) {
+    const container = document.getElementById('lista-produtos');
+    if (!container) {
+        console.error("Elemento 'lista-produtos' não encontrado.");
+        return;
+    }
 
-    diminuirBtn.addEventListener('click', () => {
-        if (quantidade > 0) {
-            quantidade--;
-            quantidadeEl.textContent = quantidade;
-        }
-    });
-
-    adicionarBtn.addEventListener('click', () => {
-        quantidade++;
-        quantidadeEl.textContent = quantidade;
-    });
-});
-
-/*Botão prosseguir compra*/
-
-document.getElementById('prosseguirCompra').addEventListener('click', function() {
-    const produtos = document.querySelectorAll('.produto'); // Captura todos os produtos
-    let carrinho = [];
-
+    container.innerHTML = ''; // Limpa o conteúdo anterior
     produtos.forEach(produto => {
-        const nome = produto.querySelector('h3').textContent;
-        const preco = produto.querySelector('.preco').textContent;
-        const quantidade = produto.querySelector('.quantidade').textContent;
-
-        // Adiciona ao carrinho apenas produtos com quantidade maior que 0
-        if (parseInt(quantidade) > 0) {
-            carrinho.push({ nome, preco, quantidade });
-        }
+        const produtoEl = document.createElement('div');
+        produtoEl.classList.add('produto');
+        produtoEl.innerHTML = `
+            <h3>${produto.nome}</h3>
+            <p class="preco">R$ ${produto.preco.toFixed(2)}</p>
+            <div class="controle">
+                <button class="diminuir">-</button>
+                <span class="quantidade">0</span>
+                <button class="adicionar">+</button>
+            </div>
+        `;
+        container.appendChild(produtoEl);
     });
 
-    console.log('Produtos no carrinho:', carrinho);
-    alert('Itens adicionados ao carrinho com sucesso!');
-    // Aqui você pode enviar os dados para o servidor ou manipular o carrinho
-});
+    adicionarEventosBotoes();
+}
+
+/* Adiciona eventos de aumentar/diminuir */
+function adicionarEventosBotoes() {
+    document.querySelectorAll('.produto').forEach(produto => {
+        const diminuirBtn = produto.querySelector('.diminuir');
+        const adicionarBtn = produto.querySelector('.adicionar');
+        const quantidadeEl = produto.querySelector('.quantidade');
+
+        let quantidade = 0;
+
+        diminuirBtn.addEventListener('click', () => {
+            if (quantidade > 0) {
+                quantidade--;
+                quantidadeEl.textContent = quantidade;
+            }
+        });
+
+        adicionarBtn.addEventListener('click', () => {
+            quantidade++;
+            quantidadeEl.textContent = quantidade;
+        });
+    });
+}
+
+/* Carrega os produtos ao carregar a página */
+document.addEventListener('DOMContentLoaded', carregarProdutos);

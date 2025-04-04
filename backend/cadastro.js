@@ -5,33 +5,38 @@ const router = express.Router();
 const url = "mongodb+srv://saborvete:reinilton@cluster0.znnugwe.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const client = new MongoClient(url);
 
-// Middleware para conexão com o MongoDB (garantir que conectamos apenas uma vez)
+// Middleware para conexão com o MongoDB
 async function connectDB() {
     if (!client.topology || !client.topology.isConnected()) {
         await client.connect();
     }
 }
 
-// Rota para buscar os sorvetes do MongoDB
+// GET: Buscar todos os produtos
 router.get('/', async (req, res) => {
     try {
         await connectDB();
         const db = client.db("Saborvete");
         const colecao = db.collection("sorvetes");
         const sorvetes = await colecao.find().toArray();
+        
+        if (sorvetes.length === 0) {
+            return res.status(404).json({ erro: "Nenhum produto encontrado!" });
+        }
+
         res.json(sorvetes);
     } catch (erro) {
         console.error("Erro ao buscar sorvetes:", erro);
-        res.status(500).send("Erro ao buscar sorvetes");
+        res.status(500).json({ erro: "Erro ao buscar sorvetes." });
     }
 });
 
-// Rota para adicionar um novo sorvete no MongoDB
+// POST: Adicionar novo produto
 router.post('/adicionar', async (req, res) => {
     const { nome, preco, quantidade } = req.body;
 
     if (!nome || preco == null || quantidade == null) {
-        return res.status(400).json({ erro: "Preencha Todos Os Campos" });
+        return res.status(400).json({ erro: "Preencha todos os campos!" });
     }
 
     try {
@@ -43,23 +48,23 @@ router.post('/adicionar', async (req, res) => {
         const produtoExistente = await colecao.findOne({ nome });
 
         if (produtoExistente) {
-            return res.status(400).json({ erro: "Produto já existe!" });
+            return res.status(400).json({ erro: "Produto já cadastrado!" });
         }
 
-        await colecao.insertOne({ nome, preco, quantidade });
+        await colecao.insertOne({ nome, preco: parseFloat(preco), quantidade: parseInt(quantidade) });
         res.status(201).json({ mensagem: "Produto adicionado com sucesso!" });
     } catch (erro) {
         console.error("Erro ao adicionar produto:", erro);
-        res.status(500).json({ erro: "Erro interno no servidor" });
+        res.status(500).json({ erro: "Erro interno ao adicionar produto." });
     }
 });
 
-// Rota para atualizar os sorvetes no MongoDB
+// PUT: Atualizar produto
 router.put('/atualizar', async (req, res) => {
     const { nome, preco, quantidade } = req.body;
 
     if (!nome || preco == null || quantidade == null) {
-        return res.status(400).json({ erro: "Preencha Todos Os Campos" });
+        return res.status(400).json({ erro: "Preencha todos os campos!" });
     }
 
     try {
@@ -75,9 +80,9 @@ router.put('/atualizar', async (req, res) => {
             res.status(404).json({ erro: "Produto não encontrado!" });
         }
     } catch (erro) {
-        console.error("Erro ao atualizar:", erro);
-        res.status(500).json({ erro: "Erro interno no servidor" });
+        console.error("Erro ao atualizar produto:", erro);
+        res.status(500).json({ erro: "Erro interno ao atualizar produto." });
     }
 });
 
-module.exports = router; // Agora exportamos o router corretamente
+module.exports = router;
