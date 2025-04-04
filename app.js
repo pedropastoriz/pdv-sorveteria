@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const homeRoute = require('./routes/home');
-const cadastroRoute = require('./routes/cadastro');
-const carrinhoRoute = require('./routes/carrinho');
+const homeRoute = require('./backend/home');
+const cadastroRoute = require('./backend/cadastro');
+const carrinhoRoute = require('./backend/carrinho');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
