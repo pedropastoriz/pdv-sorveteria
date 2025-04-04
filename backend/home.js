@@ -3,7 +3,10 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
-const dbPath = path.join(__dirname, '../data/produtos.json');
+// Rota para a página inicial
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/home.html'));
+    });
 
 // Definição da rota GET para "/home"
 router.get('/dados', (req, res) => {
