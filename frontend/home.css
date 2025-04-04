@@ -32,6 +32,7 @@ html {
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
+
 }
 
 /* ------------------------------------------------------------------ CABEÇALHO ---------------------------------------------------------------*/
@@ -70,30 +71,32 @@ header{
 }
 
 .navbar{
-    width: auto;
+    width: 100%;
     height: flex;
-    color: var(--light-blue-color);
     align-content: center;
-    padding-left: 5rem;
+    padding: 0 0 5rem 55rem;
+    display: flex;
 }
 
 #carrinho-icon {
     font-size: 75px;
+    margin: 5rem 0 0 2rem;
 }
 
 #menu-icon {
     font-size: 75px;
+    margin: 5rem 0 0 1rem;
 }
 
 .iconesNav {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+    display: flex;
+    justify-content: right;
+    position:relative;
+    gap: 20rem;
+    color: var(--orange-color);
 }
 
 .iconesNav:hover{
-    width: 10rem;
-    height: 10rem;
     color: var(--light-blue-color);
     transition: background 0.5s;
 }
@@ -280,11 +283,14 @@ h1{
 
 footer{
     width: 100%;
-    position: flex;
-    bottom: 0;
+    display: flex;
+    position: relative;
     background-color: var(--orange-color);
     text-align: center;
     padding: 10px;
+
+    justify-content: center; /* Alinha horizontalmente */
+    align-items: center; /* Alinha verticalmente */
 }
 
 .copyright{
