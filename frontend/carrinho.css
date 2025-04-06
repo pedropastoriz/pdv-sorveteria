@@ -1,6 +1,7 @@
 /*Google Fontes*/
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+
+* {
     font-family: "Lora", "Poppins";
     margin: 0;
     padding: 0;
@@ -11,9 +12,8 @@
     scroll-behavior: smooth;
 }
 
-
 /*Variaveis de cor*/
-:root{
+:root {
   --blue-color: #017bce;
   --light-blue-color: #2C9EEB;
   --orange-color: #FF8D54;
@@ -23,30 +23,25 @@
   --darker-bg-color: #ddd6cd;
 }
 
-
 html {
-  height: 100%; /* Garante que o HTML e body ocupem toda a altura */
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-
 body {
-
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Altura mínima da página */
+  min-height: 100vh;
   margin: 0;
   background-color: var(--bg-color);
   color: var(--bg-color);
   overflow-x: hidden;
 }
 
-
-
 /* ------------------------------------------------------------- CABEÇALHO ----------------------------------------------------------------*/
 
-header{
+header {
   width: 100%;
   height: 170px;
   position: fixed;
@@ -60,8 +55,8 @@ header{
   padding: 10px 50px;
 }
 
-.logo{
-  display: inline-block; /* Garante que o link não expanda */
+.logo {
+  display: inline-block;
   max-width: 180px;
   align-items: center;
   font-size: 1.1rem;
@@ -70,16 +65,16 @@ header{
   column-gap: 0.5rem;
 }
 
-.logo img{
+.logo img {
   width: 200px;
   height: 160px;
 }
 
-.logo .bx{
+.logo .bx {
   color: var(--light-blue-color);
 }
 
-.navbar{
+.navbar {
   width: 300px;
   height: 200px;
   color: var(--light-blue-color);
@@ -96,33 +91,37 @@ header{
 }
 
 .iconesNav {
-  display: fixed;           
-  justify-content: center; 
-  align-items: center;     
+  display: fixed;
+  justify-content: center;
+  align-items: center;
   overflow: visible;
   color: var(--orange-color);
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
 }
 
-.iconesNav:hover{
+.iconesNav:hover {
   width: 10rem;
   height: 10rem;
   color: var(--light-blue-color);
   transition: background 0.5s;
 }
 
-
+@media (max-width: 600px) {
+  #carrinho-icon, #menu-icon {
+    font-size: 40px;
+  }
+}
 
 /* ------------------------------------------------------------- CONTEÚDO ----------------------------------------------------------------*/
 
-.conteudo{
+.conteudo {
   position: relative;
   z-index: 900;
   margin-top: 180px;
   flex: 1;
 }
 
-h1{
+h1 {
   font-family: "Lora";
   text-align: center;
   color: var(--text-color);
@@ -148,25 +147,22 @@ h1{
   font-weight: bold;
 }
 
-
 .item-nome {
-  font-size: 20x;
+  font-size: 20px;
   margin: 5px 0;
   color: var(--text-color);
 }
 
-.item-preco{
+.item-preco {
   color: var(--text-color);
   font-weight: bold;
 }
-
-
 
 .botoes {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* Espaço entre os botões */
+  gap: 10px;
 }
 
 .botoes button {
@@ -189,7 +185,6 @@ h1{
   font-size: 16px;
 }
 
-
 .campo-valorTotal {
   margin-top: 0px;
   font-size: 20px;
@@ -203,7 +198,6 @@ h1{
   font-weight: bold;
   color: var(--text-color);
 }
-
 
 #comprar {
   width: 150px;
@@ -220,7 +214,6 @@ h1{
   cursor: pointer;
   background-color: var(--orange-color);
   color: var(--text-color);
-
 }
 
 #comprar:hover {
@@ -230,39 +223,183 @@ h1{
 
 /* ------------------------------------------------------------- RODAPÉ ----------------------------------------------------------------*/
 
-footer{
+footer {
   width: 100%;
-  position: flex;
-  bottom: 0;
   background-color: var(--orange-color);
   text-align: center;
   padding: 10px;
 }
 
-.copyright{
+.copyright {
   color: var(--bg-color);
   letter-spacing: 2px;
 }
 
-
-
 /* ------------------------------------------------------------- TAMANHO TELAS ----------------------------------------------------------------*/
-
 
 @media (max-width: 1200px) {
   .produtos-container {
-      grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas menores */
+      grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 992px) {
   .produtos-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
+      grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .produtos-container {
-      grid-template-columns: 1fr; /* 1 coluna em dispositivos móveis */
+      grid-template-columns: 1fr;
   }
 }
+
+/* ------------------------------------------------------------- Painel pagamento ----------------------------------------------------------------*/
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+}
+
+#painel-pagamento {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2100;
+  width: 350px;
+  text-align: center;
+}
+
+#painel-pagamento h2 {
+  color: orange;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#forma-pagamento {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid orange;
+  border-radius: 5px;
+}
+
+#realizar-pagamento {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#realizar-pagamento:hover {
+  background-color: #218838;
+}
+
+#fechar-painel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: gray;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#fechar-painel:hover {
+  color: black;
+}
+
+#comprovante-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 2200;
+}
+
+#comprovante {
+  background: white;
+  width: 300px;
+  padding: 20px 20px 30px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+#comprovante h2 {
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+#lista-produtos-comprovante p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: var(--text-color);
+}
+
+#comprovante p {
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+#baixar-comprovante {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--orange-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#baixar-comprovante:hover {
+  background-color: var(--blue-color);
+  color: white;
+}
+
+#fechar-comprovante {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+}
+
+#fechar-comprovante:hover {
+  color: black;
+}
+
+
