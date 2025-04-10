@@ -11,7 +11,7 @@ const homeRoute = require('./backend/home');
 const cadastroRoute = require('./backend/cadastro');
 const carrinhoRoute = require('./backend/carrinho');
 
-//app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'frontend')));
 

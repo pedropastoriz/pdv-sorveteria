@@ -5,7 +5,7 @@ async function carregarProdutos() {
     const select = document.getElementById("produto");
 
     try {
-        const resposta = await fetch(`${backendURL}/cadastro/sorvetes`);
+        const resposta = await fetch(`${backendURL}/sorvetes`);
         if (!resposta.ok) throw new Error("Erro ao buscar produtos");
 
         const produtos = await resposta.json();
@@ -42,7 +42,7 @@ async function atualizarProduto() {
     try {
         btnSalvar.disabled = true; // Evita cliques repetidos
 
-        const resposta = await fetch(`${backendURL}/cadastro/atualizar`, {
+        const resposta = await fetch(`${backendURL}/atualizar`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(dados)

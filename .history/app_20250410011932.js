@@ -1,17 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-//novo
-const cors = require('cors');
-app.use(cors());
+
+const homeRoute = require('./config/home');
+const cadastroRoute = require('./config/cadastro');
+const carrinhoRoute = require('./config/carrinho');
+
 app.use(express.json());
-//
-
-const homeRoute = require('./backend/home');
-const cadastroRoute = require('./backend/cadastro');
-const carrinhoRoute = require('./backend/carrinho');
-
-//app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'frontend')));
 

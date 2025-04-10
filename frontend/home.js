@@ -1,6 +1,6 @@
 console.log("Script carregado com sucesso!");
 
-/* Função para carregar os produtos do backend */
+/* Carrega os produtos do backend */
 async function carregarProdutos() {
     try {
         const resposta = await fetch('http://localhost:3000/api/produtos'); // Altere para a porta do seu servidor
@@ -24,6 +24,9 @@ function renderizarProdutos(produtos) {
     produtos.forEach(produto => {
         const produtoEl = document.createElement('div');
         produtoEl.classList.add('produto');
+        produtoEl.dataset.nome = produto.nome;
+        produtoEl.dataset.preco = produto.preco;
+
         produtoEl.innerHTML = `
             <h3>${produto.nome}</h3>
             <p class="preco">R$ ${produto.preco.toFixed(2)}</p>
@@ -62,5 +65,29 @@ function adicionarEventosBotoes() {
     });
 }
 
-/* Carrega os produtos ao carregar a página */
-document.addEventListener('DOMContentLoaded', carregarProdutos);
+/* Evento do botão "Prosseguir" */
+document.getElementById('prosseguirCompra')?.addEventListener('click', () => {
+    const produtosSelecionados = [];
+
+    document.querySelectorAll('.produto').forEach(produtoEl => {
+        const nome = produtoEl.dataset.nome;
+        const preco = parseFloat(produtoEl.dataset.preco);
+        const quantidade = parseInt(produtoEl.querySelector('.quantidade').textContent);
+
+        if (quantidade > 0) {
+            produtosSelecionados.push({ nome, preco, quantidade });
+        }
+    });
+
+    localStorage.setItem('carrinho', JSON.stringify(produtosSelecionados));
+    console.log("Produtos salvos no carrinho:", produtosSelecionados);
+
+    // Redireciona para a página do carrinho
+    window.location.href = 'carrinho.html';
+});
+
+/* Quando a página for carregada */
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Página carregada com sucesso!");
+    carregarProdutos(); // Carrega os produtos do backend
+});

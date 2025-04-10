@@ -42,7 +42,7 @@ async function atualizarProduto() {
     try {
         btnSalvar.disabled = true; // Evita cliques repetidos
 
-        const resposta = await fetch(`${backendURL}/cadastro/atualizar`, {
+        const resposta = await fetch(`${backendURL}/atualizar`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(dados)

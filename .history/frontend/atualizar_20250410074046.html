@@ -54,7 +54,7 @@
         <input type="number" id="quantidade">
     </div>
 
-    <button type="button" class="btn-salvar" id="btn-salvar">Salvar</button>
+    <button type="submit" class="btn-salvar" id="btn-salvar">Salvar</button>
 
     <script>
     document.addEventListener("DOMContentLoaded", async () => {
@@ -89,7 +89,7 @@
         }
 
         try {
-            const resposta = await fetch("http://localhost:3000/cadastro/atualizar", {
+            const resposta = await fetch("http://localhost:3001/atualizar", {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ nome, preco: Number(preco), quantidade: Number(quantidade) })

@@ -79,7 +79,7 @@
     });
 
     document.getElementById("btn-salvar").addEventListener("click", async () => {
-        const nome = document.getElementById("lista-sorvetes").value;
+        const nome = document.getElementById("produto").value;
         const preco = document.getElementById("preco").value;
         const quantidade = document.getElementById("quantidade").value;
 
@@ -89,7 +89,7 @@
         }
 
         try {
-            const resposta = await fetch("http://localhost:3000/cadastro/atualizar", {
+            const resposta = await fetch("http://localhost:3001/atualizar", {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ nome, preco: Number(preco), quantidade: Number(quantidade) })

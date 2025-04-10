@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Saborvete - Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="atualizar.css">
+
+    <!-- Link para site de ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <header>
+        <a href="home.html" class="logo">
+            <img src="/frontend/Imagens/logoSaborvete-semFundo.png" alt="Saborvete">
+        </a>
+        <div class="navbar">
+            <a href="/frontend/carrinho.html" class="iconesNav"><i class="bx bx-cart" id="carrinho-icon"></i></a>
+            <a href="/frontend/atualizar.html" class="iconesNav"><i class="bx bx-menu" id="menu-icon"></i></a>
+        </div>
+    </header>      
+
+    <h1>CADASTRO</h1>
+
+    <!-- Formulário sem recarregar a página -->
+    <form class="form" onsubmit="return false;">
+        <h2>CADASTRO</h2>
+
+        <!-- Dropdown de sorvetes -->
+        <div class="campo">
+            <label for="produto">Produto:</label>
+            <select id="produto">
+                <option value="">Escolha um produto...</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="preco">Preço:</label>
+            <input type="number" id="preco">
+        </div>
+        
+        <div class="campo">
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade">
+        </div>
+
+        <button type="button" class="btn-salvar" id="btn-salvar">Salvar</button>
+        <p id="mensagem" style="margin-top: 10px; color: green;"></p>
+    </form>
+
+    <footer class="footer">
+        <p class="copyright">&copy; 2025 - Todos os direitos reservados</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const selectSorvetes = document.getElementById("produto");
+
+            try {
+                const resposta = await fetch("http://localhost:3000/cadastro/sorvetes");
+                if (!resposta.ok) throw new Error("Erro na requisição");
+
+                const sorvetes = await resposta.json();
+
+                sorvetes.forEach(sorvete => {
+                    const option = document.createElement("option");
+                    option.value = sorvete.nome;
+                    option.textContent = sorvete.nome;
+                    selectSorvetes.appendChild(option);
+                });
+            } catch (erro) {
+                console.error("Erro ao buscar sorvetes:", erro);
+                selectSorvetes.innerHTML = '<option value="">Erro ao carregar produtos</option>';
+            }
+        });
+
+        document.getElementById("btn-salvar").addEventListener("click", async () => {
+            const nome = document.getElementById("produto").value;
+            const preco = document.getElementById("preco").value;
+            const quantidade = document.getElementById("quantidade").value;
+            const mensagem = document.getElementById("mensagem");
+
+            if (!nome || preco === "" || quantidade === "") {
+                mensagem.style.color = "red";
+                mensagem.innerText = "Preencha todos os campos!";
+                return;
+            }
+
+            try {
+                const resposta = await fetch("http://localhost:3000/cadastro/atualizar", {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ nome, preco: Number(preco), quantidade: Number(quantidade) })
+                });
+
+                const resultado = await resposta.json();
+                mensagem.style.color = resultado.erro ? "red" : "green";
+                mensagem.innerText = resultado.mensagem || resultado.erro;
+            } catch (erro) {
+                console.error("Erro ao atualizar:", erro);
+                mensagem.style.color = "red";
+                mensagem.innerText = "Erro ao atualizar o produto.";
+            }
+        });
+    </script>
+
+    <!-- jQuery (caso necessário para outros scripts) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

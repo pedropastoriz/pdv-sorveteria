@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Saborvete - Cadastro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="atualizar.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+  <header>
+    <a href="home.html" class="logo">
+      <img src="Imagens/logoSaborvete-semFundo.png" alt="Saborvete">
+    </a>
+    <div class="navbar">
+      <a href="carrinho.html" class="iconesNav"><i class="bx bx-cart" id="carrinho-icon"></i></a>
+      <a href="atualizar.html" class="iconesNav"><i class="bx bx-menu" id="menu-icon"></i></a>
+    </div>
+  </header>
+
+  <h1>CADASTRO</h1>
+
+  <form class="form">
+    <h2>Cadastro de Produtos</h2>
+    <div class="campo">
+      <label for="produto-select">Produto:</label>
+      <select id="produto-select">
+        <option disabled selected>Carregando produtos...</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label for="preco">Preço:</label>
+      <input type="number" id="preco" required>
+    </div>
+    <div class="campo">
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" id="quantidade" required>
+    </div>
+    <button type="button" class="btn-salvar" id="btn-salvar">Salvar</button>
+  </form>
+
+  <footer class="footer">
+    <p class="copyright">&copy; 2025 - Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    async function carregarProdutosDropdown() {
+      try {
+        const resposta = await fetch('http://localhost:3000/api/cadastro/sorvetes');
+        if (!resposta.ok) throw new Error('Erro ao buscar produtos');
+
+        const produtos = await resposta.json();
+        const select = document.getElementById('produto-select');
+        select.innerHTML = '<option disabled selected>Selecione um produto</option>';
+
+        produtos.forEach(produto => {
+          const option = document.createElement('option');
+          option.value = produto.nome;
+          option.textContent = produto.nome;
+          select.appendChild(option);
+        });
+      } catch (erro) {
+        console.error('Erro ao carregar produtos:', erro);
+      }
+    }
+
+    async function salvarAlteracoes() {
+      const nome = document.getElementById('produto-select').value;
+      const preco = parseFloat(document.getElementById('preco').value);
+      const quantidade = parseInt(document.getElementById('quantidade').value);
+
+      if (!nome || isNaN(preco) || isNaN(quantidade)) {
+        alert('Preencha todos os campos corretamente!');
+        return;
+      }
+
+      try {
+        const resposta = await fetch('http://localhost:3000/api/cadastro/atualizar', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, preco, quantidade })
+        });
+
+        const resultado = await resposta.json();
+
+        if (resposta.ok) {
+          alert(resultado.mensagem);
+        } else {
+          alert(resultado.erro);
+        }
+      } catch (erro) {
+        console.error('Erro ao salvar alterações:', erro);
+        alert('Erro ao salvar as alterações.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      carregarProdutosDropdown();
+      document.getElementById('btn-salvar').addEventListener('click', salvarAlteracoes);
+    });
+  </script>
+</body>
+</html>

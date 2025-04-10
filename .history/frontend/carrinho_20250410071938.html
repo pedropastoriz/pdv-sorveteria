@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saborvete - Carrinho</title>
+  <link rel="icon" href="/frontend/Imagens/abaLogo.png" type="image/png">
+  <link rel="stylesheet" href="carrinho.css"> <!-- LINK DO CSS AQUI -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+  <!-- Barra de navegação -->
+  <header>
+    <a href="home.html" class="logo">
+      <img src="/frontend/Imagens/logoSaborvete-semFundo.png" alt="Saborvete">
+    </a>
+    <div class="navbar">
+      <a href="/frontend/carrinho.html" class="iconesNav" target="_blank"><i class="bx bx-cart" id="carrinho-icon"></i></a>
+      <a href="/frontend/atualizar.html" class="iconesNav" target="_blank"><i class="bx bx-menu" id="menu-icon"></i></a>
+    </div>
+  </header>
+
+  <!-- Lista de Itens Selecionados -->
+  <div class="conteudo">
+    <h1>CARRINHO</h1>
+    <div class="cart-container">
+      <div class="produto">
+        <span class="item-nome">Picolé de Morango</span>
+        <span class="item-preco">R$ 8,00</span>
+        <div class="botoes">
+          <button class="diminuir">-</button>
+          <span class="quantidade">0</span>
+          <button class="adicionar">+</button>
+        </div>
+      </div>
+      <div class="produto">
+        <span class="item-nome">Pote de Morango</span>
+        <span class="item-preco">R$ 20,00</span>
+        <div class="botoes">
+          <button class="diminuir">-</button>
+          <span class="quantidade">0</span>
+          <button class="adicionar">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="campo-valorTotal">
+      <div id="valor-total">Valor total: R$ 0,00</div>
+    </div>
+  </div>
+
+  <button id="comprar">COMPRAR</button>
+
+  <!-- Painel de pagamento -->
+  <div id="overlay"></div>
+  <div id="painel-pagamento">
+    <h2>FORMA DE PAGAMENTO</h2>
+    <select id="forma-pagamento">
+      <option disabled selected>Escolha a forma de pagamento</option>
+      <option value="pix">Pix</option>
+      <option value="credito">Cartão de Crédito</option>
+      <option value="debito">Cartão de Débito</option>
+      <option value="dinheiro">Dinheiro</option>
+    </select>
+    <button id="realizar-pagamento">FINALIZAR COMPRA</button>
+    <button id="fechar-painel">X</button>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p class="copyright">&copy; 2025 - Todos os direitos reservados</p>
+  </footer>
+
+  <!-- SCRIPT DO JAVASCRIPT -->
+  <script src="carrinho.js"></script> <!-- LINK DO JS AQUI -->
+</body>
+</html>
