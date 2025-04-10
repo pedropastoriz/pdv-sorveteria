@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Usado para suportar grande parte dos caracteres, incluindo os
+    especiais-->
+    <meta charset="UTF-8">
+
+    <!--Utiliza a versão mais recente do Microsoft Edge-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Informa que a largura da janela de vizualização seja igual à
+    largura do dispositivo. Também defini o zoom inicial como 1.0, que
+    serve para exibir o site corretamente em mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Icone da aba-->
+    <link rel="icon" href="/frontend/Imagens/abaLogo.png" type="image/png">
+    
+    <title>Saborvete</title>
+
+    <!--Linkando o CSS-->
+    <link rel="stylesheet" href="home.css">
+
+    <!--Link para ícones-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+
+
+<body>
+        <!--Barra de navegação-->
+        <header>
+            <a href="home.html" class="logo">
+                <img src="/frontend/Imagens/logoSaborvete-semFundo.png" alt="Saborvete">
+            </a>
+
+            <!--Icones de menu-->
+            <div class="navbar">
+                <a href="/frontend/carrinho.html" class="iconesNav" target="_blank"><i class="bx bx-cart" id="carrinho-icon"></i></a>
+                <a href="/frontend/atualizar.html" class="iconesNav" target="_blank"><i class="bx bx-menu" id="menu-icon"></i></a>
+            </div>
+        </header>
+
+        <div class="conteudo">
+            
+            <div class="section section-corFundo">
+                <br>
+                <br>
+
+                <h1>HOME</h1>
+
+                <br>
+                <br>
+                <br>
+
+                <div class="banner">
+                    <img src="Imagens/logoSaborvete-semFundo.png" alt="Logo do site" class="logo-banner">
+                    <div class="overlay"></div> <!-- Camada preta com opacidade -->
+                        <img src="Imagens/bannerPicoles.png" alt="Banner do site" class="banner-img">
+                </div>
+
+
+            </div>
+
+
+            <div class="separadorSections"></div>
+
+
+            <div class="section section-corFundo">
+                <img src="Imagens/picolesSortidos.png" class="saborSorvetes" alt="fotoSorvetes">
+
+                <br>
+                <br>
+                <br>
+
+                <!-- <div class="produtos-container">
+                    
+                    <div class="produto">
+                        <img src="Imagens/saborMorango-Picole.png" alt="Picole-01">
+                        <h3>Picolé de Morango</h3>
+                        <p class="preco">R$ 8,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+
+                        </div>
+                    </div>
+
+              
+                    <div class="produto">
+                        <img src="Imagens/saborChocolate-Picole.png" alt="Picole-02">
+                        <h3>Picolé de Chocolate</h3>
+                        <p class="preco">R$ 8,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+
+                    <div class="produto">
+                        <img src="Imagens/saborUva-Picole.png" alt="Picole-03">
+                        <h3>Picolé de Uva</h3>
+                        <p class="preco">R$ 8,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+
+                    <div class="produto">
+                        <img src="Imagens/saborCoco-Picole.png" alt="Picole-04">
+                        <h3>Picolé de Coco</h3>
+                        <p class="preco">R$ 8,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+
+                    <div class="produto">
+                        <img src="Imagens/saborMilho-Picole.png" alt="Picole-05">
+                        <h3>Picolé de Milho</h3>
+                        <p class="preco">R$ 8,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+
+                    <div class="produto">
+                        <img src="Imagens/poteSorvete.png" alt="PoteSorvete-01">
+                        <h3>Pote de Morango</h3>
+                        <p class="preco">R$ 20,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+
+                    <div class="produto">
+                        <img src="Imagens/poteSorvete.png" alt="PoteSorvete-02">
+                        <h3>Pote de Chocolate</h3>
+                        <p class="preco">R$ 20,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+
+                    <div class="produto">
+                        <img src="Imagens/poteSorvete.png" alt="PoteSorvete-03">
+                        <h3>Pote de Uva</h3>
+                        <p class="preco">R$ 20,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+
+                    <div class="produto">
+                        <img src="Imagens/poteSorvete.png" alt="PoteSorvete-04">
+                        <h3>Pote de Coco</h3>
+                        <p class="preco">R$ 20,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+                    <div class="produto">
+                        <img src="Imagens/poteSorvete.png" alt="PoteSorvete-05">
+                        <h3>Pote de Milho</h3>
+                        <p class="preco">R$ 20,00</p>
+                        <div class="botoes">
+                            <button class="diminuir">-</button>
+                            <span class="quantidade">0</span>
+                            <button class="adicionar">+</button>
+                        </div>
+                    </div>
+                  -->
+
+                </div>
+                <button id="prosseguirCompra">Prosseguir</button>
+            </div>
+*/
+        </div>
+
+
+
+
+        <footer>
+            <p class="copyright">&copy; 2025 - Todos os direitos reservados</p>
+        </footer>
+
+
+        <!--Linkando o JavaScript-->
+        <script src="home.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    </body>
+</html>

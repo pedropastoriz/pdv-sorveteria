@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Suporte a caracteres especiais -->
+    <meta charset="UTF-8">
+
+    <!-- Compatibilidade com Microsoft Edge -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Configuração para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Ícone da aba -->
+    <link rel="icon" href="/frontend/Imagens/abaLogo.png" type="image/png">
+    
+    <title>Saborvete</title>
+
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="home.css">
+
+    <!-- Link para ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <header>
+        <a href="home.html" class="logo">
+            <img src="/frontend/Imagens/logoSaborvete-semFundo.png" alt="Saborvete">
+        </a>
+
+        <!-- Ícones de menu -->
+        <div class="navbar">
+            <a href="/frontend/carrinho.html" class="iconesNav" target="_blank"><i class="bx bx-cart" id="carrinho-icon"></i></a>
+            <a href="/frontend/atualizar.html" class="iconesNav" target="_blank"><i class="bx bx-menu" id="menu-icon"></i></a>
+        </div>
+    </header>
+
+    <div class="conteudo">
+        <div class="section section-corFundo">
+            <h1>HOME</h1>
+
+            <!-- Banner -->
+            <div class="banner">
+                <img src="Imagens/logoSaborvete-semFundo.png" alt="Logo do site" class="logo-banner">
+                <div class="overlay"></div> <!-- Camada preta com opacidade -->
+                <img src="Imagens/bannerPicoles.png" alt="Banner do site" class="banner-img">
+            </div>
+        </div>
+
+        <div class="separadorSections"></div>
+
+        <div class="section section-corFundo">
+            <img src="Imagens/picolesSortidos.png" class="saborSorvetes" alt="Foto de Sorvetes">
+
+            <div id="produtos-container" class="produtos-container">
+                <!-- Produtos serão carregados dinamicamente -->
+            </div>
+
+            <button id="prosseguirCompra">Prosseguir</button>
+        </div>
+    </div>
+
+    <footer>
+        <p class="copyright">&copy; 2025 - Todos os direitos reservados</p>
+    </footer>
+
+    <!-- Link para o JavaScript -->
+    <script src="home.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

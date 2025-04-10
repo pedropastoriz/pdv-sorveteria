@@ -3,9 +3,15 @@ console.log("Script carregado com sucesso!");
 /* Carrega os produtos do backend */
 async function carregarProdutos() {
     try {
+        console.log("Iniciando busca de produtos...");
         const resposta = await fetch('http://localhost:3000/api/produtos'); // Altere para a porta do seu servidor
+        console.log("Resposta da API: ", resposta);
+
         if (!resposta.ok) throw new Error('Erro ao carregar os produtos');
+
         const produtos = await resposta.json();
+        console.log("Produtos recebidos: ", produtos);
+
         renderizarProdutos(produtos);
     } catch (erro) {
         console.error("Erro ao buscar produtos:", erro);
@@ -39,7 +45,7 @@ function renderizarProdutos(produtos) {
         container.appendChild(produtoEl);
     });
 
-    adicionarEventosBotoes();
+    adicionarEventosBotoes(); // Chamando aqui
 }
 
 /* Adiciona eventos de aumentar/diminuir */
@@ -52,6 +58,7 @@ function adicionarEventosBotoes() {
         let quantidade = 0;
 
         diminuirBtn.addEventListener('click', () => {
+            console.log("Botão diminuir clicado: ", produto.dataset.nome);
             if (quantidade > 0) {
                 quantidade--;
                 quantidadeEl.textContent = quantidade;
@@ -59,6 +66,7 @@ function adicionarEventosBotoes() {
         });
 
         adicionarBtn.addEventListener('click', () => {
+            console.log("Botão adicionar clicado: ", produto.dataset.nome);
             quantidade++;
             quantidadeEl.textContent = quantidade;
         });
@@ -79,8 +87,8 @@ document.getElementById('prosseguirCompra')?.addEventListener('click', () => {
         }
     });
 
+    console.log("Produtos salvos no carrinho: ", produtosSelecionados);
     localStorage.setItem('carrinho', JSON.stringify(produtosSelecionados));
-    console.log("Produtos salvos no carrinho:", produtosSelecionados);
 
     // Redireciona para a página do carrinho
     window.location.href = 'carrinho.html';

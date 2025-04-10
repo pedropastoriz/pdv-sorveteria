@@ -1,0 +1,62 @@
+[
+    {
+      "id": 1,
+      "nome": "Picolé de Morango",
+      "preco": 8,
+      "quantidade": 100
+    },
+    {
+      "id": 2,
+      "nome": "Pote de Morango",
+      "preco": 20,
+      "quantidade": 50
+    },
+    {
+      "id": 3,
+      "nome": "Picolé de Chocolate",
+      "preco": 8,
+      "quantidade": 100
+    },
+    {
+      "id": 4,
+      "nome": "Pote de Chocolate",
+      "preco": 20,
+      "quantidade": 50
+    },
+    {
+      "id": 5,
+      "nome": "Picolé de Uva",
+      "preco": 8,
+      "quantidade": 100
+    },
+    {
+      "id": 6,
+      "nome": "Pote de Uva",
+      "preco": 20,
+      "quantidade": 50
+    },
+    {
+      "id": 7,
+      "nome": "Picolé de Coco",
+      "preco": 8,
+      "quantidade": 100
+    },
+    {
+      "id": 8,
+      "nome": "Pote de Coco",
+      "preco": 20,
+      "quantidade": 50
+    },
+    {
+      "id": 9,
+      "nome": "Picolé de Milho",
+      "preco": 8,
+      "quantidade": 100
+    },
+    {
+      "id": 10,
+      "nome": "Pote de Milho",
+      "preco": 20,
+      "quantidade": 50
+    }
+  ]
